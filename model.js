@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose');
 
 const database = 'mongodb://localhost:27017/subscriptions';
 
@@ -22,4 +22,4 @@ const schema = new mongoose.Schema({
 
 const Subscription = mongoose.model('Subscription', schema);
 
-export { Subscription };
+module.exports = { Subscription };

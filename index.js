@@ -1,11 +1,11 @@
 
-import express from 'express'
-import rateLimit from 'express-rate-limit'
-import bodyParser from 'body-parser'
-import ejs from 'ejs'
-import webpush from 'web-push'
-import mongoose from 'mongoose'
-import objectHash from 'object-hash'
+const express = require("express");
+const rateLimit = require('express-rate-limit');
+const bodyParser = require('body-parser');
+const ejs = require('ejs');
+const webpush = require('web-push');
+const mongoose = require('mongoose');
+const objectHash = require('object-hash');
 
 // Parsers
 let jsonParser = bodyParser.json();
@@ -30,7 +30,7 @@ const limiter = rateLimit({
 app.use(limiter);
 
 // subscriptions
-import * as Subscription from './model.js';
+const Subscription = require('./model.js');
 
 // app settings
 app.engine('html', ejs.renderFile);
@@ -40,8 +40,8 @@ app.use(express.static('./views'));
 // Generate your own vapid keys by running: 
     // npm i web-push -g 
     // web-push generate-vapid-keys
-const publicVapidKey = '<<Public Key>>';
-const privateVapidKey = '<<Private Key>>';
+const publicVapidKey = 'BLHzO72u_HRH-z-T6gLZ5m9iBmxMBsxrGhPGoqEYn64UcBKsxdhL3wlwlWoaAM8_Q5xxRTdHLE_DoZpolF4hi8U';
+const privateVapidKey = 'EWuvgBxY-L8wCA2BaoXW1RQskd7QyXlC-Wy6Z_E3bBI';
 
 webpush.setVapidDetails('mailto:mail@someEmail.com', publicVapidKey, privateVapidKey);
 

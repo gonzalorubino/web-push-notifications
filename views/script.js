@@ -3,7 +3,7 @@ var isDomReady = function(callback) {
 };
 
 isDomReady(function(e) {
-    const publicVapidKey = '<<<Public Key>>>';
+    const publicVapidKey = 'BLHzO72u_HRH-z-T6gLZ5m9iBmxMBsxrGhPGoqEYn64UcBKsxdhL3wlwlWoaAM8_Q5xxRTdHLE_DoZpolF4hi8U';
     document.getElementById('subscribe').addEventListener('click', async function(e) {
         const registration = await navigator.serviceWorker.register('worker.js', {scope: '/'});
         const subscription = await registration.pushManager.subscribe({
